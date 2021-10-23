@@ -15,7 +15,7 @@ class Turn:
             self (Guess): an instance of Guess.
         """
         self._guess = guess
-        self._hint = self.get_hint()
+        
 
 
     def get_guess(self):
