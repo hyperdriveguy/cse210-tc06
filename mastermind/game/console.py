@@ -19,30 +19,22 @@ class Console:
         Returns:
             string: The user's input as text.
         """
-        return input(prompt.title())
+        return input(prompt)
 
-    def get_num_input(self, prompt, error_msg):
+    def get_num_input(self, prompt):
         """Gets numerical input from the user through the screen.
 
         Args: 
             self (Screen): An instance of Screen.
             prompt (string): The prompt to display to the user.
-            error_msg (string): The message to display if user enters invalid inputs
 
         Returns:
             integer: The user's input as an integer.
         """
-        while not prompt.isdigit() and prompt != 4:
-            print()
-            print(error_msg)
-            print()
-            prompt = int(input(prompt))
-        
-        else:
-            prompt = int(input(prompt))
-        
-        return prompt
-        
+                
+        return int(input(prompt))
+
+
     def write(self, text):
         """Displays the given text on the screen. 
 

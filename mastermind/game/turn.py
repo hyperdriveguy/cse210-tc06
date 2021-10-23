@@ -8,13 +8,14 @@ class Turn:
         _guess (integer): The guess to compare code to
         
     """
-    def __init__(self, guess):
+    def __init__(self, guess, code):
         """The class constructor.
         
         Args:
             self (Guess): an instance of Guess.
         """
         self._guess = guess
+        self._code = code
         
 
 
