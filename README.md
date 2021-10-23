@@ -23,6 +23,13 @@ The project files and folders are organized as follows:
 root                    (project root folder)
 +-- mastermind          (source code for game)
   +-- game              (specific game classes)
+    +-- __init__.py     (python package file)
+    +-- director.py     (Controller)
+    +-- console.py      (Interfacer)
+    +-- player.py       (Information Holder)
+    +-- roster.py       (Structurer)
+    +-- safe.py         (Information Holder)
+    +-- guess.py        (Information Holder)
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
 +-- README.md           (general info)
@@ -45,4 +52,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your names and emails here
+* Bryndi Hellewell - brynlol12@gmail.com
