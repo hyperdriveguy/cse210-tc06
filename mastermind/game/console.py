@@ -34,7 +34,7 @@ class Console:
         """
         while not prompt.isdigit() and prompt != 4:
             print()
-            print(error_msg).
+            print(error_msg)
             print()
             prompt = int(input(prompt))
         
