@@ -23,8 +23,14 @@ class Safe:
         self._hint = '****'
         
 
-    def generate_code(self):
-        self._code = str(random.randint(1000, 9999))
+    def generate_code(self, hex_code=False):
+        if hex_code:
+            self._code = str(hex(random.randint(0, int(0xffff))))[2:].upper()
+        else:
+            self._code = str(random.randint(0, 9999))
+        while len(self._code) < 4:
+            self._code = '0' + self._code
+        print(self._code)
 
     def get_code(self):
         return self._code

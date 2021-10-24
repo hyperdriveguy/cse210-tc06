@@ -37,7 +37,6 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._safe.generate_code()
         self._prepare_game()
         while self._keep_playing:
             self._get_inputs()
@@ -50,6 +49,12 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+
+        self._game_mode = self._console.get_str_input(f'Easy or Hard mode? (E/h) ')
+        if self._game_mode == 'h':
+            self._safe.generate_code(hex_code=True)
+        else:
+            self._safe.generate_code()
         for n in range(2):
             name = self._console.get_str_input(f"Enter a name for player {n + 1}: ")
             player = Player(name)
@@ -71,7 +76,10 @@ class Director:
         # get next player's guess
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
-        guess = self._console.get_str_input("What is your guess: ")
+        if self._game_mode == 'h':
+            guess = self._console.get_guess_input("What is your guess: ", hex_code=True)
+        else:
+            guess = self._console.get_guess_input("What is your guess: ")
         turn = Turn(guess, self._safe.get_code())
         player.set_turn(turn)
 
