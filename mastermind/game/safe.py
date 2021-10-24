@@ -27,13 +27,22 @@ class Safe:
         self._hint = '****'
         
 
-    def generate_code(self):
-        """Generates the code.
+
+    def generate_code(self, hex_code=False):
+        """Generates the code. 
         
         Args:
             self (Safe): An instance of Safe
-        """
-        self._code = str(random.randint(1000, 9999))
+            hex_code (bool): If false, generate code with only numbers
+              if true, generate code with letters and numbers
+        """    
+        if hex_code:
+            self._code = str(hex(random.randint(0, int(0xffff))))[2:].upper()
+        else:
+            self._code = str(random.randint(0, 9999))
+        while len(self._code) < 4:
+            self._code = '0' + self._code
+
 
     def get_code(self):
         """Gets the code.
