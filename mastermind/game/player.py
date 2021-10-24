@@ -8,7 +8,7 @@ class Player:
 
     Attributes:
         _name (string): The player's name.
-        _guess (Guess): The player's last guess.
+        _turn (Turn): An instance of Turn.
     """
     def __init__(self, name):
         """The class constructor.
@@ -21,10 +21,13 @@ class Player:
         
     def get_turn(self):
         """Returns the player's last turn (guess and hint) (an instance of Turn). If the player 
-        hasn't taken a turn yet this method returns None.
+        hasn't taken a turn yet this method returns preset string.
 
         Args:
             self (Player): an instance of Player.
+
+        Return:
+            Players last guess and hint
         """
         return self._turn
 
@@ -33,6 +36,9 @@ class Player:
 
         Args:
             self (Player): an instance of Player.
+
+        Return:
+            Player's name in title format
         """
         return self._name.title()
 

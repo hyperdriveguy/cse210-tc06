@@ -1,18 +1,20 @@
 class Turn:
-    """A maneuver in the game. The responsibility of Guess is to keep track of the guess.
+    """A maneuver in the game. 
+       The responsibility of Turn is to keep track of the guess and corresponding hint.
     
     Stereotype: 
         Information Holder
 
     Attributes:
-        _guess (integer): The guess to compare code to
+        _guess (str): The guess to compare code to
+        _code (str): The number the player trys to guess
         
     """
     def __init__(self, guess, code):
         """The class constructor.
         
         Args:
-            self (Guess): an instance of Guess.
+            self (Turn): an instance of Turn.
         """
         self._guess = guess
         self._code = code
@@ -20,10 +22,10 @@ class Turn:
 
 
     def get_guess(self):
-        """Returns the guess to compare to code to 
+        """Returns the guess to compare the code to 
 
         Args:
-            self (Move): an instance of Guess.
+            self (Turn): an instance of Turn.
         """
 
         return self._guess
@@ -32,8 +34,7 @@ class Turn:
         """Generates a hint based on the given code and guess.
 
         Args:
-            self (Safe): An instance of Safe.
-            guess (string): The guess that was made.
+            self (Turn): An instance of Turn.
 
         Returns:
             string: A hint in the form [xxxx]
