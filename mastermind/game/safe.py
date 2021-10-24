@@ -36,16 +36,6 @@ class Safe:
         """
         self._guess = turn.get_guess()
         self._hint = turn.get_hint()
-   
-    def turn_to_str(self, roster):
-        """"""
-
-        text = '\n------------------------'
-        for player in roster.get_players():
-            last_turn = player.get_turn()
-            text += f'\nPlayer {player.get_name()}: {last_turn.get_guess()}, {last_turn.get_hint()}'
-        text += '\n------------------------'
-        return text    
 
     def is_correct(self):
         return (self._guess == self._code)

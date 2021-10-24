@@ -56,3 +56,13 @@ class Roster:
             self (Roster): An instance of Roster.
         """
         self.current = (self.current + 1) % len(self.players)
+   
+    def player_turn_to_str(self):
+        """"""
+
+        text = '\n------------------------'
+        for player in self.get_players():
+            last_turn = player.get_turn()
+            text += f'\nPlayer {player.get_name()}: {last_turn.get_guess()}, {last_turn.get_hint()}'
+        text += '\n------------------------'
+        return text    
