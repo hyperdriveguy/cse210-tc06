@@ -1,3 +1,5 @@
+from game.turn import Turn
+
 class Player:
     """A person taking part in a game. The responsibility of Player is to keep track of their identity and last guess.
     
@@ -15,7 +17,7 @@ class Player:
             self (Player): an instance of Player.
         """
         self._name = name
-        self._turn = None
+        self._turn = Turn('----', '****')
         
     def get_turn(self):
         """Returns the player's last turn (guess and hint) (an instance of Turn). If the player 
