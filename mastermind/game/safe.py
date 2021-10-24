@@ -12,18 +12,30 @@ class Safe:
         Attributes:
             _code (string): four-digit code stored as a string
             _guess (string): four-digit guess stored as string
-            _players (list): list of players
-            _player_items (compound list): holds code, current guess, and hint for each player
+            _hint (string): hint for player stored as a string
        
        """
 
     def __init__(self):
+        """The class constructor.
+        
+        Args:
+            self (Safe): an instance of Safe.
+        """
         self._code = ''
         self._guess = '----'
         self._hint = '****'
         
 
+
     def generate_code(self, hex_code=False):
+        """Generates the code. 
+        
+        Args:
+            self (Safe): An instance of Safe
+            hex_code (bool): If false, generate code with only numbers
+              if true, generate code with letters and numbers
+        """    
         if hex_code:
             self._code = str(hex(random.randint(0, int(0xffff))))[2:].upper()
         else:
@@ -31,16 +43,32 @@ class Safe:
         while len(self._code) < 4:
             self._code = '0' + self._code
 
+
     def get_code(self):
+        """Gets the code.
+        
+        Args:
+            self (Safe): An instance of Safe
+
+        Return (str): Returns the code as a string
+        """
         return self._code
 
     def apply_turn(self, turn):
-        """
+        """Executes a turn, setting the guess and hint
+
         Args:
-            turn (Turn): an instance of Turn
+            safe (Safe): an instance of Safe
         """
         self._guess = turn.get_guess()
         self._hint = turn.get_hint()
 
     def is_correct(self):
+        """Determine if the guess matches the code
+        
+        Args:
+            self (Safe): An instance of Safe
+
+        Return (bool): If guess matches code return true 
+        """
         return (self._guess == self._code)
