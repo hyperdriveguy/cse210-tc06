@@ -30,7 +30,6 @@ class Safe:
             self._code = str(random.randint(0, 9999))
         while len(self._code) < 4:
             self._code = '0' + self._code
-        print(self._code)
 
     def get_code(self):
         return self._code
