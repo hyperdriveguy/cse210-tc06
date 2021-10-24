@@ -37,12 +37,12 @@ class Safe:
         self._guess = turn.get_guess()
         self._hint = turn.get_hint()
    
-    def turn_to_str(self):
+    def turn_to_str(self, roster):
         """"""
 
         text = '\n------------------------'
-        for i in range(2):
-            text += f'\nPlayer {i}: {self._guess}, {self._hint}'
+        for player in roster.get_players():
+            text += f'\nPlayer {player.get_name()}: {self._guess}, {self._hint}'
         text += '\n------------------------'
         return text    
 

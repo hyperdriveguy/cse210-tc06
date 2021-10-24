@@ -66,7 +66,7 @@ class Director:
         """
 
         #display the game board
-        self._console.write(self._safe.turn_to_str())
+        self._console.write(self._safe.turn_to_str(self._roster))
 
         # get next player's guess
         player = self._roster.get_current()
