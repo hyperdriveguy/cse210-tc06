@@ -42,7 +42,8 @@ class Safe:
 
         text = '\n------------------------'
         for player in roster.get_players():
-            text += f'\nPlayer {player.get_name()}: {self._guess}, {self._hint}'
+            last_turn = player.get_turn()
+            text += f'\nPlayer {player.get_name()}: {last_turn.get_guess()}, {last_turn.get_hint()}'
         text += '\n------------------------'
         return text    
 
