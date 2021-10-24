@@ -2,7 +2,7 @@ class Roster:
     """A collection of players. The responsibility of Roster is to keep track of the players.
     
     Stereotype: 
-        Information Holder
+        Structurer/Information Holder
 
     Attributes:
         _current (integer): The index of the current player.
@@ -14,7 +14,7 @@ class Roster:
         Args:
             self (Roster): an instance of Roster.
         """
-        self.current = -1
+        self.current = 0
         self.players = []
         
     def add_player(self, player):
@@ -26,6 +26,17 @@ class Roster:
         """
         if player not in self.players:
             self.players.append(player)
+
+    def get_players(self):
+        """Gets the list of players.
+        
+        Args:
+            self (Roster): An instance of Roster.
+            
+        Returns:
+            Players: the list of players
+        """
+        return self.players
 
     def get_current(self):
         """Gets the current player object.
@@ -45,3 +56,13 @@ class Roster:
             self (Roster): An instance of Roster.
         """
         self.current = (self.current + 1) % len(self.players)
+   
+    def player_turn_to_str(self):
+        """"""
+
+        text = '\n------------------------'
+        for player in self.get_players():
+            last_turn = player.get_turn()
+            text += f'\nPlayer {player.get_name()}: {last_turn.get_guess()}, {last_turn.get_hint()}'
+        text += '\n------------------------'
+        return text    
