@@ -19,20 +19,37 @@ class Console:
         Returns:
             string: The user's input as text.
         """
-        return input(prompt)
+        return input(prompt).lower()
 
-    def get_num_input(self, prompt):
-        """Gets numerical input from the user through the screen.
+    def get_guess_input(self, prompt, hex_code=False):
+        """Gets numerical input for the user guessfrom the user through the screen.
 
         Args: 
             self (Screen): An instance of Screen.
             prompt (string): The prompt to display to the user.
+            hex (bool, optional): Flag whether to accept hexadecimal input.
 
         Returns:
-            integer: The user's input as an integer.
+            str: The user's input as an integer or hex formatted to a string.
         """
-                
-        return int(input(prompt))
+        if hex_code:
+            highest = '9 and a through f are'
+        else:
+            highest = '9 is'
+        while True:
+            raw_str = input(prompt)
+            try:
+                if len(raw_str) < 4:
+                    raise ValueError('Value below minimum number of allowed digits.')
+                if hex_code:
+                    num = int('0x' + raw_str, 16)
+                else:
+                    num = int(raw_str)
+                if (not hex_code and num > 9999) or (hex_code and num > 0xffff):
+                    raise ValueError('Value exceeds number of allowed digits.')
+                return raw_str.upper()
+            except ValueError:
+                self.write(f'Invalid combo. Only 4 digits of 0 through {highest} valid.')
 
 
     def write(self, text):
