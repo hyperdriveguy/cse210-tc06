@@ -26,7 +26,7 @@ class Turn:
             self (Move): an instance of Guess.
         """
 
-        return str(self._guess)
+        return self._guess
 
     def get_hint(self):
         """Generates a hint based on the given code and guess.
@@ -38,7 +38,7 @@ class Turn:
         Returns:
             string: A hint in the form [xxxx]
         """ 
-        hint = '****'
+        hint = ''
         for index, letter in enumerate(self._guess):
             if self._code[index] == letter:
                 hint += "x"

@@ -21,8 +21,9 @@ class Safe:
         self._code = ''
         self._guess = '----'
         self._hint = '****'
+        
 
-    def _generate_code(self):
+    def generate_code(self):
         self._code = str(random.randint(1000, 9999))
 
     def get_code(self):

@@ -37,6 +37,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        self._safe.generate_code()
         self._prepare_game()
         while self._keep_playing:
             self._get_inputs()
@@ -100,4 +101,5 @@ class Director:
             winner = self._roster.get_current()
             name = winner.get_name()
             print(f'\n{name} won!')
+            self._keep_playing = False
         self._roster.next_player()
